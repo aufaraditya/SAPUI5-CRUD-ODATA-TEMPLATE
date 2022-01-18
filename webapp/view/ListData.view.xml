@@ -1,0 +1,65 @@
+<mvc:View controllerName="AAUFARNameSpace.ZFORM_ODATA_AUFAR.controller.ListData" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<App>
+		<pages>
+			<Page title="{i18n>List of Employee Vaccine Data}">
+				<content>
+					<Table id="tableData" width="auto" mode="MultiSelect" items="{ path: '/EmpVacDataSet', sorter: { path: 'Persno', descending: false } }"
+						noDataText="{worklistView>/tableNoDataText}" busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingScrollToLoad="true"
+						updateFinished="onUpdateFinished">
+						<headerToolbar>
+							<Toolbar>
+								<Title id="tableHeader" text="{worklistView>/worklistTableTitle}"/>
+								<ToolbarSpacer/>
+								<SearchField id="searchField" tooltip="{i18n>worklistSearchTooltip}" search="onSearch" width="auto"></SearchField>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column>
+								<Text text="{i18n>Persno}" id="textPersnoHeader" />
+							</Column>
+							<Column>
+								<Text text="{i18n>Umur}" />
+							</Column>
+							<Column id="genderColumn">
+								<Text text="{i18n>Jenis Kelamin}"  />
+							</Column>
+							<Column id="bloodtypeColumn">
+								<Text text="{i18n>Golongan Darah}" />
+							</Column>
+							<Column id="heightColumn">
+								<Text text="{i18n>Tinggi}"  />
+							</Column>
+							<Column id="weightColumn">
+								<Text text="{i18n>Berat}"  />
+							</Column>
+							<Column id="deleteColumn">
+								<Text text="{i18n>Action}" />
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem press="onPress" type="Navigation" >
+								<cells>
+									<ObjectIdentifier id="Persno" title="{Persno}"/>
+									<Text  text="{ path:'Age', formatter:'.formatter.reformatAge' }"/>
+									<Text text="{Gender}"/>
+									<Text text="{BloodType}"/>
+									<Text text="{ path:'Height', formatter:'.formatter.reformatHeight' } cm"/>
+									<Text  text=  "{ path:'Weight', formatter:'.formatter.reformatWeight' } kg"/>
+									<Button press="onDeleteOne" id="buttonDeleteOne" icon="sap-icon://delete" type="Reject"></Button>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+				<footer>
+					<Toolbar>
+						<Button text="Delete" id="massDeleteButton" type="Reject" icon="sap-icon://delete" press="onMassDelete"></Button>
+						<ToolbarSpacer></ToolbarSpacer>
+						<Button text="Add" id="addButton" type="Accept" icon="sap-icon://add" press="onAdd"></Button>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

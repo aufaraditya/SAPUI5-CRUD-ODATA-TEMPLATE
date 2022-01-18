@@ -1,0 +1,160 @@
+{
+	"_version": "1.9.0",
+	"sap.app": {
+		"id": "AAUFARNameSpace.ZFORM_ODATA_AUFAR",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"dataSources": {
+			"mainService": {
+				"uri": "/sap/opu/odata/sap/ZPRJ_EMPLOYEE_COV_VAC_AUF_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		},
+		"sourceTemplate": {
+			"id": "sap.ui.ui5-template-plugin.1worklist",
+			"version": "1.52.7"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://task",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "AAUFARNameSpace.ZFORM_ODATA_AUFAR.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.42.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.f": {},
+				"sap.ushell": {},
+				"sap.collaboration": {
+					"lazy": true
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "AAUFARNameSpace.ZFORM_ODATA_AUFAR.i18n.i18n"
+				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"preload": true
+			}
+		},
+		"services": {
+			"ShellUIService": {
+				"factoryName": "sap.ushell.ui5service.ShellUIService",
+				"lazy": false,
+				"settings": {
+					"setTitle": "auto"
+				}
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "AAUFARNameSpace.ZFORM_ODATA_AUFAR.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"bypassed": {
+					"target": [
+						"notFound"
+					]
+				},
+				"async": true
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "listdata",
+					"target": [
+						"listdata"
+					],
+					"subroutes": [
+						{
+							"pattern": "create/",
+							"name": "create",
+							"target": [
+								"create"
+							]
+						}
+					]
+				},
+				{
+					"pattern": "EmpVacDataSet/{objectId}",
+					"name": "update",
+					"target": [
+						"update"
+					]
+				}
+			],
+			"targets": {
+				"listdata": {
+					"viewName": "ListData",
+					"viewId": "listdata",
+					"viewLevel": 1,
+					"title": "{i18n>worklistViewTitle}"
+				},
+				"create": {
+					"viewName": "Create",
+					"viewId": "create",
+					"viewLevel": 2,
+					"title": "{i18n>worklistViewTitle}"
+				},
+				"update": {
+					"viewName": "Update",
+					"viewId": "update",
+					"viewLevel": 2,
+					"title": "{i18n>objectViewTitle}"
+				},
+				"objectNotFound": {
+					"viewName": "ObjectNotFound",
+					"viewId": "objectNotFound"
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"viewId": "notFound"
+				}
+			}
+		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/ztrainingauf/webapp",
+		"_version": "1.1.0"
+	}
+}

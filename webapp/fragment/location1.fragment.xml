@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+	<SelectDialog title="Lokasi Vaksin 1" confirm="onClickConfirmSHLokasi1" 	items="{
+			path: '/ZshVacLocAufSet',
+			sorter: {
+				path: 'LocationCode',
+				descending: false
+			}
+		}" search="onSearch">
+		<StandardListItem description="{LocationText}" title="{LocationCode}" type="Active"></StandardListItem> 
+		
+	</SelectDialog>
+</core:FragmentDefinition>
