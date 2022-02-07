@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZPRJ_EMPLOYEE_COV_VAC_AUF_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="EmpVacData" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Persno"/>
+                </Key>
+                <Property Name="Persno" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Personnel no." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Gender" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Gender" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BloodType" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Blood Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Height" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Employee Height" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Weight" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Employee Weight" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Age" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Age" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vac1Type" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Vaccine Type 1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vac1Date" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Vaccine Date 1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LocationCode1" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Vaccine Loc. 1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vac1Org" Type="Edm.String" Nullable="false" MaxLength="250" sap:unicode="false" sap:label="Vaccine 1 Organizer" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vac1SideEffect" Type="Edm.String" Nullable="false" MaxLength="250" sap:unicode="false" sap:label="Vaccine 1 Side Effec" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vac2Type" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Vaccine Type 2" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vac2Date" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Vaccine Date 2" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LocationCode2" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Vaccine Loc. 2" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vac2Org" Type="Edm.String" Nullable="false" MaxLength="250" sap:unicode="false" sap:label="Vaccine 2 Organizer" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vac2SideEffect" Type="Edm.String" Nullable="false" MaxLength="250" sap:unicode="false" sap:label="Vaccine 2 Side Effec" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Note" Type="Edm.String" Nullable="false" MaxLength="500" sap:unicode="false" sap:label="Notes" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="ZshVaccineAuf" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="VacType"/>
+                </Key>
+                <Property Name="VacType" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Vaccine Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="VacText" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Vaccine Type Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="ZshBloodType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="BloodType"/>
+                </Key>
+                <Property Name="BloodType" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Blood Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="ZshVacLocAuf" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="LocationCode"/>
+                </Key>
+                <Property Name="LocationCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Vaccine Location" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LocationText" Type="Edm.String" Nullable="false" MaxLength="250" sap:unicode="false" sap:label="VaccLoc. Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZPRJ_EMPLOYEE_COV_VAC_AUF_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="EmpVacDataSet" EntityType="ZPRJ_EMPLOYEE_COV_VAC_AUF_SRV.EmpVacData" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ZshVaccineAufSet" EntityType="ZPRJ_EMPLOYEE_COV_VAC_AUF_SRV.ZshVaccineAuf" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ZshBloodTypeSet" EntityType="ZPRJ_EMPLOYEE_COV_VAC_AUF_SRV.ZshBloodType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ZshVacLocAufSet" EntityType="ZPRJ_EMPLOYEE_COV_VAC_AUF_SRV.ZshVacLocAuf" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="http://s4h.abyor.com/sap/opu/odata/sap/ZPRJ_EMPLOYEE_COV_VAC_AUF_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://s4h.abyor.com/sap/opu/odata/sap/ZPRJ_EMPLOYEE_COV_VAC_AUF_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,160 @@
+{
+    "_version": "1.32.0",
+    "sap.app": {
+        "id": "aaufar.fioriodatasampleproject",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "dataSources": {
+            "mainService": {
+                "uri": "/sap/opu/odata/sap/ZPRJ_EMPLOYEE_COV_VAC_AUF_SRV/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "aaufar-fioriodatasampleproject-inbound": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "fiori-odata-sample",
+                    "action": "Get",
+                    "title": "{{flpTitle}}",
+                    "subTitle": "{{flpSubtitle}}",
+                    "icon": ""
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.97.2",
+            "libs": {
+                "sap.ui.core": {},
+                "sap.m": {},
+                "sap.f": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "aaufar.fioriodatasampleproject.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {}
+            }
+        },
+        "resources": {
+            "css": []
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "aaufar.fioriodatasampleproject.view",
+                "controlId": "app",
+                "controlAggregation": "pages",
+                "bypassed": {
+                    "target": [
+                        "notFound"
+                    ]
+                },
+                "async": true
+            },
+            "routes": [
+                {
+                    "pattern": "",
+					"name": "listdata",
+					"target": [
+						"listdata"
+					],
+                    "subroutes": [
+						{
+							"pattern": "create/",
+							"name": "create",
+							"target": [
+								"create"
+							]
+						}
+					]
+                },
+                {
+                    "pattern": "EmpVacDataSet/{objectId}",
+                    "name": "update",
+                    "target": [
+                        "update"
+                    ]
+                }
+            ],
+            "targets": {
+                "listdata": {
+					"viewName": "ListData",
+					"viewId": "listdata",
+					"viewLevel": 1,
+					"title": "{i18n>worklistViewTitle}"
+				},
+				"create": {
+					"viewName": "Create",
+					"viewId": "create",
+					"viewLevel": 2,
+					"title": "{i18n>worklistViewTitle}"
+				},
+				"update": {
+					"viewName": "Update",
+					"viewId": "update",
+					"viewLevel": 2,
+					"title": "{i18n>objectViewTitle}"
+				},
+                "objectNotFound": {
+                    "viewName": "ObjectNotFound",
+                    "viewId": "objectNotFound"
+                },
+                "notFound": {
+                    "viewName": "NotFound",
+                    "viewId": "notFound"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "aaufar.fioriodatasampleproject.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "app"
+        }
+    }
+}

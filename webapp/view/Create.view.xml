@@ -1,0 +1,67 @@
+<mvc:View 
+xmlns:html="http://www.w3.org/1999/xhtml" 
+xmlns:mvc="sap.ui.core.mvc" 
+xmlns="sap.m" 
+xmlns:f="sap.ui.layout.form" 
+xmlns:core="sap.ui.core" 
+controllerName="aaufar.fioriodatasampleproject.controller.Create" displayBlock="true">
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<f:SimpleForm id="simpleForm" layout="ResponsiveGridLayout" editable="true" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false" ariaLabelledBy="Title1">
+					<f:content>
+						<Label text="Personnel Number" design="{i18n>labelFontType}"/>
+						<Input id="persnoInput" required="true" width="30%" />
+						<Label text="Jenis Kelamin" design="{i18n>labelFontType}"/>
+						<RadioButtonGroup id="radioButtonGender">
+							<RadioButton id="MALE" text="Male"/>
+							<RadioButton id="FEMALE" text="Female"/>
+						</RadioButtonGroup>
+						<Label text="Golongan Darah" design="{i18n>labelFontType}"/>
+						<Input id="searchHelpGolDar" required="true" valueHelpRequest="onSearchHelpGolDar" showValueHelp="true" valueHelpOnly="true"/>
+						<Label text="Tinggi Badan" design="{i18n>labelFontType}"/>
+						<Input id="heightInput" type="Number" required="true" description="cm"/>
+						<Label text="Berat Badan" design="{i18n>labelFontType}"/>
+						<Input id="weightInput" type="Number" required="true" description="Kg"/>
+						<Label text="Tanggal Lahir" design="{i18n>labelFontType}"/>
+						<DatePicker id="DOB" required="true" change="onChangeDOB"/>
+						<Input id="ageInput" enabled="false" class="sapUiLargeMarginBottom" description="Tahun"/>
+						<Label text="Jenis Vaksin 1" design="{i18n>labelFontType}"/>
+						<ComboBox id="comboBoxVaksin1" required="true" items="{/ZshVaccineAufSet}">
+							<core:Item key="{VacType}" text="{VacText}"/>
+						</ComboBox>
+						<Label text="Tanggal Vaksin 1" design="{i18n>labelFontType}"/>
+						<DatePicker id="dateVaksin1" required="true"/>
+						<Label text="Penyelenggara Vaksin 1" design="{i18n>labelFontType}"/>
+						<Input id="orgInput1" required="true"/>
+						<Label text="Lokasi Vaksin 1" design="{i18n>labelFontType}"/>
+						<Input id="searchHelpLokasi1" required="true" valueHelpRequest="onSearchHelpLokasi1" showValueHelp="true" valueHelpOnly="true" width="100%"/>
+						<Label text="Efek Samping Vaksin 1" design="{i18n>labelFontType}"/>
+						<TextArea id="inputEfekSamping1" class="sapUiSmallMarginBottom" showExceededText="true" maxLength="100" liveChange="onLiveChangeTextArea"/>
+						<Label text="Jenis Vaksin 2" design="{i18n>labelFontType}"/>
+						<ComboBox id="comboBoxVaksin2" required="true" items="{/ZshVaccineAufSet}">
+							<core:Item key="{VacType}" text="{VacText}"/>
+						</ComboBox>
+						<Label text="Tanggal Vaksin 2" design="{i18n>labelFontType}"/>
+						<DatePicker id="dateVaksin2" required="true"/>
+						<Label text="Penyelenggara Vaksin 2" design="{i18n>labelFontType}"/>
+						<Input id="orgInput2" required="true"/>
+						<Label text="Lokasi Vaksin 2" design="{i18n>labelFontType}"/>
+						<Input id="searchHelpLokasi2" required="true" valueHelpRequest="onSearchHelpLokasi2" showValueHelp="true" valueHelpOnly="true"/>
+						<Label text="Efek Samping Vaksin 2" design="{i18n>labelFontType}"/>
+						<TextArea id="inputEfekSamping2" class="sapUiLargeMarginBottom" showExceededText="true" maxLength="100" liveChange="onLiveChangeTextArea"/>
+						<Label text="Catatan" design="{i18n>labelFontType}"/>
+						<TextArea id="Notes" showExceededText="true" maxLength="250" liveChange="onLiveChangeTextArea"/>
+					</f:content>
+				</f:SimpleForm>
+				<footer>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Button text="{i18n>labelSubmitButton}" type="Accept" press="onSubmit"/>
+						<Button text="{i18n>labelCancelButton}" type="Reject"/>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
